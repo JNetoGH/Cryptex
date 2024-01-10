@@ -55,15 +55,13 @@ public class CryptexController : MonoBehaviour
         UpdateCurrentCombination();
 
         if (!_isPasswordSolved && _password.Equals(_currentCombination))
-        {
             _isPasswordSolved = true;
-            _wheels.ForEach(w => w.GetComponent<Outline>().enabled = false);
-        }
         
         if (_isPasswordSolved)
         {
             _animator.SetTrigger(Open);
             _isPasswordSolved = false;
+            _wheels.ForEach(w => w.GetComponent<Outline>().enabled = false);
         }
     }
 
